@@ -90,9 +90,9 @@ namespace NS_SLUA {
 	/* decode */
 
 	typedef struct pb_Slice { const char *p, *end; } pb_Slice;
-	#define pb_gettype(v)       ((v) &  7)
-	#define pb_gettag(v)        ((v) >> 3)
-	#define pb_pair(tag, type)  ((tag) << 3 | ((type) & 7))
+#define pb_gettype(v)       ((v) &  7)
+#define pb_gettag(v)        ((v) >> 3)
+#define pb_pair(tag, type)  ((tag) << 3 | ((type) & 7))
 
 	PB_API pb_Slice pb_slice(const char *p);
 	PB_API pb_Slice pb_lslice(const char *p, size_t len);
@@ -122,7 +122,7 @@ namespace NS_SLUA {
 
 	/* encode */
 
-	#define PB_BUFFERSIZE   (1024)
+#define PB_BUFFERSIZE   (1024)
 
 	typedef struct pb_Buffer {
 		size_t size;
@@ -131,12 +131,12 @@ namespace NS_SLUA {
 		char   init_buff[PB_BUFFERSIZE];
 	} pb_Buffer;
 
-	#define pb_buffer(b)      ((b)->buff)
-	#define pb_bufflen(b)     ((b)->size)
-	#define pb_addsize(b, sz) ((void)((b)->size += (sz)))
-	#define pb_addchar(b, ch) \
-		((void)((b)->size < (b)->capacity || pb_prepbuffsize((b), 1)), \
-		 ((b)->buff[(b)->size++] = (ch)))
+#define pb_buffer(b)      ((b)->buff)
+#define pb_bufflen(b)     ((b)->size)
+#define pb_addsize(b, sz) ((void)((b)->size += (sz)))
+#define pb_addchar(b, ch) \
+    ((void)((b)->size < (b)->capacity || pb_prepbuffsize((b), 1)), \
+     ((b)->buff[(b)->size++] = (ch)))
 
 	PB_API void   pb_initbuffer(pb_Buffer *b);
 	PB_API void   pb_resetbuffer(pb_Buffer *b);
@@ -175,9 +175,9 @@ namespace NS_SLUA {
 	typedef struct pb_Type  pb_Type;
 	typedef struct pb_Field pb_Field;
 
-	#define PB_OK     0
-	#define PB_ERROR  1
-	#define PB_ENOMEM 2
+#define PB_OK     0
+#define PB_ERROR  1
+#define PB_ENOMEM 2
 
 	PB_API int pb_load(pb_State *S, pb_Slice *s);
 
@@ -198,7 +198,7 @@ namespace NS_SLUA {
 
 	/* util: memory pool */
 
-	#define PB_POOLSIZE 4096
+#define PB_POOLSIZE 4096
 
 	typedef struct pb_Pool {
 		void  *pages;
