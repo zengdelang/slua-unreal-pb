@@ -15,7 +15,7 @@
 
 #include "lua/lua.hpp"
 
-namespace slua {
+namespace NS_SLUA {
     namespace LuaProtobuf {
         void init(lua_State *L);
     }
