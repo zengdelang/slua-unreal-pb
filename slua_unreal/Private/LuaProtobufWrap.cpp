@@ -14,7 +14,7 @@
 #include "LuaProtobufWrap.h"
 #include "luaprotobuf/lpb.h"
 
-namespace slua {
+namespace NS_SLUA {
 
     namespace LuaProtobuf {
 
